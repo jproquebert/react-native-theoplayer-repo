@@ -1,0 +1,82 @@
+buildscript {
+  if (project == rootProject) {
+    repositories {
+      google()
+      mavenCentral()
+    }
+
+    dependencies {
+      classpath 'com.android.tools.build:gradle:4.2.2'
+    }
+  }
+}
+
+apply plugin: 'com.android.library'
+
+def safeExtGet(prop, fallback) {
+  rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+def TimeUpdateRate = "com.theoplayer.TimeUpdateRate"
+
+android {
+  compileSdkVersion safeExtGet('Theoplayer_compileSdkVersion', 31)
+  defaultConfig {
+    minSdkVersion safeExtGet('Theoplayer_minSdkVersion', 21)
+    targetSdkVersion safeExtGet('Theoplayer_targetSdkVersion', 31)
+    versionCode 1
+    versionName "1.0"
+  }
+
+  buildTypes {
+    debug {
+      // Optionally limit timeUpdate rate
+      buildConfigField TimeUpdateRate, "TIMEUPDATE_RATE", "${TimeUpdateRate}.UNLIMITED"
+
+      // Optionally log events to logcat
+      buildConfigField "boolean", "LOG_PLAYER_EVENTS", "true"
+      buildConfigField "boolean", "LOG_VIEW_EVENTS", "true"
+    }
+    release {
+      minifyEnabled false
+
+      // Optionally limit timeUpdate rate
+      buildConfigField TimeUpdateRate, "TIMEUPDATE_RATE", "${TimeUpdateRate}.UNLIMITED"
+
+      // Optionally log events to logcat
+      buildConfigField "boolean", "LOG_PLAYER_EVENTS", "false"
+      buildConfigField "boolean", "LOG_VIEW_EVENTS", "false"
+    }
+  }
+  lintOptions {
+    disable 'GradleCompatible'
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  packagingOptions {
+    exclude 'META-INF/kotlin-stdlib.kotlin_module'
+    exclude 'META-INF/annotation-experimental_release.kotlin_module'
+  }
+}
+
+repositories {
+  mavenLocal()
+  maven {
+    // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+    url("$rootDir/../node_modules/react-native/android")
+  }
+  google()
+  mavenCentral()
+  maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+  //noinspection GradleDynamicVersion
+  implementation "com.facebook.react:react-native:+"  // From node_modules
+  implementation 'com.theoplayer.theoplayer-sdk-android:unified:3.1.0'
+  implementation 'com.theoplayer.theoplayer-sdk-android:unified-ads:3.1.0'
+  implementation 'com.theoplayer.theoplayer-sdk-android:unified-ads-ima:3.1.0'
+  implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+}
