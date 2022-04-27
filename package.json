@@ -117,6 +117,7 @@
     ]
   },
   "dependencies": {
+    "react-native-theoplayer": "file:example/react-native-theoplayer-0.1.1.tgz",
     "theoplayer": "^3.1.0"
   }
 }

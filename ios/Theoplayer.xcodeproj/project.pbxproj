@@ -53,10 +53,10 @@
 		266114A82796D16400EDF0CD /* src */ = {
 			isa = PBXGroup;
 			children = (
+				266114B02796E2ED00EDF0CD /* THEOplayerRCTViewManager.h */,
+				266114B12796E31600EDF0CD /* THEOplayerRCTViewManager.m */,
 				266114B52796E3DF00EDF0CD /* THEOplayerRCTView.h */,
 				266114B32796E3CD00EDF0CD /* THEOplayerRCTView.m */,
-				266114B12796E31600EDF0CD /* THEOplayerRCTViewManager.m */,
-				266114B02796E2ED00EDF0CD /* THEOplayerRCTViewManager.h */,
 			);
 			path = src;
 			sourceTree = "<group>";

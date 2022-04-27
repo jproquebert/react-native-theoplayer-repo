@@ -7524,7 +7524,14 @@
     "jscodeshift" "^0.11.0"
     "nullthrows" "^1.1.1"
 
-"react-native@>=0.64.0-rc.0 || 0.0.0-*", "react-native@0.64.2":
+"react-native-theoplayer@file:example/react-native-theoplayer-0.1.1.tgz":
+  "integrity" "sha512-kRAxj/BIJHoet0XfZyFRwUEVoGvslKk5/Td/tHxWcmriW7XimEnTUE4Doth/biz8UojGW62yU/fT9EVPTtzuow=="
+  "resolved" "file:example/react-native-theoplayer-0.1.1.tgz"
+  "version" "0.1.1"
+  dependencies:
+    "theoplayer" "^3.1.0"
+
+"react-native@*", "react-native@>=0.64.0-rc.0 || 0.0.0-*", "react-native@0.64.2":
   "integrity" "sha512-Ty/fFHld9DcYsFZujXYdeVjEhvSeQcwuTGXezyoOkxfiGEGrpL/uwUZvMzwShnU4zbbTKDu2PAm/uwuOittRGA=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.64.2.tgz"
   "version" "0.64.2"
@@ -7567,7 +7574,7 @@
   "resolved" "https://registry.npmjs.org/react-refresh/-/react-refresh-0.4.3.tgz"
   "version" "0.4.3"
 
-"react@^16.8.0 || ^17.0.0", "react@17.0.1":
+"react@*", "react@^16.8.0 || ^17.0.0", "react@17.0.1":
   "integrity" "sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.1.tgz"
   "version" "17.0.1"
